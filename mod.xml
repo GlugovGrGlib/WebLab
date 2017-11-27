@@ -1,0 +1,235 @@
+<Module><ModulePrefs author="Carlos Jaramillo" author_email="cjaramilu@gmail.com" description="__MSG_description__" screenshot="http://reddigital.biz/appl/gb/gadgets/bookScreen.jpg" title="__UP_title__" directory_title="__MSG_title__" title_url="http://reddigital.biz" category="tools" thumbnail="http://reddigital.biz/appl/gb/gadgets/bookThumb.jpg" height="200"><Locale messages="http://hosting.gmodules.com/ig/gadgets/file/100438775973682310358/bookALL_ALL.xml"/><Locale messages="http://hosting.gmodules.com/ig/gadgets/file/100438775973682310358/bookES_ALL.xml" lang="es"/><Require feature="setprefs"/><Require feature="dynamic-height"/><Require feature="analytics"/><Preload href="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"/></ModulePrefs><UserPref name="title" display_name="Titulo" default_value="__MSG_title__" datatype="string"/><UserPref name="listData" default_value="" datatype="hidden"/><Content type="html">
+
+<title>Mis Favoritos</title>
+<style>
+
+  div#Edit { width:100%}
+  div#Edit input[type=text] { width:100% }
+  div#Edit p.text { color:white; background-color:black }
+
+  div#List td.link { width:100% }
+  div#List td.edit { cursor:pointer }
+  .even { background-color:#eee }
+
+  td{ font-size:12px }
+  p, input { font-size: 11px }
+
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script type="text/javascript">
+
+  var GBAS = new Array();
+  var $nSave = -1;
+
+  var $prefs;
+  var $listdata;
+  var UACCT = "UA-171208-2";
+
+  _IG_RegisterOnloadHandler( finit );
+
+function finit ()
+{
+  	jQuery.noConflict();
+
+	pEdit = jQuery("div#Edit");
+	pList = jQuery("div#List");
+
+	ptitle = pEdit.find("input[name=title]");
+	plink  = pEdit.find("input[name=link]");
+
+	pelim  = pEdit.find("input[value=Retirar]");
+	ptext  = pEdit.find("p.text");
+
+	pTable = pList.find ("table");
+	plast  = pTable.find("tr.static");
+
+	$prefs = new _IG_Prefs(__MODULE_ID__);
+	fillGBAS();
+
+	goList();
+	_IG_Analytics(UACCT, "/bookmarks");
+
+}
+
+function goList ()
+{
+	pList.show();
+	pEdit.hide();
+
+	// remove all rows except last
+	pTable.find("tr.dynamic").remove();
+
+        // clear last row color
+	plast.find("td").removeClass( "even" );
+
+	for ( $i = 0; $i < GBAS.length; $i++)
+	{
+		$entry = GBAS[$i];
+		$title = $entry[0];
+		$link  = $entry[1];
+		$pos   = $i +1;
+
+		plast.before (
+"<tr class='dynamic'>" +
+"<td class='link'>" +
+"<a href='" + $link + "' target=_blank>" + $title + "</a></td>" +
+"<td class='edit' title='__MSG_edit__ " + $pos + "' onclick='goEdit(" + $i + ")' >" +
+"<img src='http://reddigital.biz/appl/gb/images/pencil.png'></td>" +
+"</tr>" );
+	}
+
+	// add color
+	pTable.find("tr:even td").addClass( "even" );
+
+	_IG_AdjustIFrameHeight();
+}
+
+function goEdit($n)
+{
+	$nSave = $n;
+	pList.hide();
+	pEdit.show();
+
+	if ( $n < 0 )
+	{
+		$pos = GBAS.length + 1;
+		ptext.text("__MSG_creating__ " + $pos );
+
+		pelim.attr("disabled", "true");
+		ptitle.val("");
+		plink.val("http://");
+	}
+	else
+	{
+		$pos = $n + 1;
+		ptext.text("__MSG_modifying__ " + $pos );
+
+		pelim.attr ("disabled", false);
+
+		$entry = GBAS[$n];
+		$title = $entry[0];
+		$link  = $entry[1];
+
+		ptitle.val($title);
+		plink.val($link);
+	}
+
+	_IG_AdjustIFrameHeight();
+}
+
+function doCancel( )
+{
+	pList.show();
+	pEdit.hide();
+
+  	_IG_AdjustIFrameHeight();
+}
+
+function doSave()
+{
+	$n = $nSave;
+	if ( $n < 0 )
+		$n = GBAS.length;
+
+	$title = ptitle.val();
+	$link  = plink.val();
+
+	$title = jQuery.trim($title);
+
+	if ( $link.search( /^http/ ) < 0 ) {
+		alert ( "__MSG_address_err__")
+		return;
+	}
+
+	GBAS[$n] = [$title, $link];
+	saveGBAS();
+
+	goList();
+}
+
+function doDel( )
+{
+	$n= $nSave;
+	$title = GBAS[$n][0];
+	$pos = $n;
+
+	$confirm = confirm("__MSG_deleting__" + $pos );
+	if (! $confirm)
+	{
+		return;
+	}
+
+	GBAS.splice($n, 1);
+	saveGBAS();
+
+	goList();
+}
+
+function fillGBAS()
+{
+	$listdata = $prefs.getString("listData");
+
+	if ( ! $listdata )
+		$listdata = "reddit\thttp://reddit.com";
+
+	var xarr = $listdata.split("\n");
+	for (i=0;i < xarr.length; i++)
+	{
+		var x=xarr[i];
+		var yarr=x.split("\t");
+		GBAS.push ( yarr );
+	}
+}
+
+function saveGBAS()
+{
+	$listdata="";
+
+	for ( $i = 0; $i < GBAS.length; $i++)
+	{
+		$entry = GBAS[$i];
+
+		if ( $i > 0 ) $listdata += "\n";
+
+		$listdata += $entry[0] + "\t" + $entry[1];
+	}
+
+       if ( $listdata.length > 1900 )
+       {
+                alert ( "__MSG_save_limit__" );
+                return;
+       }
+
+       $prefs.set("listData", $listdata );
+}
+
+</script>
+
+<div id="List" style="display:block">
+<table>
+<tr class=static title='__MSG_add__' onclick='goEdit(-1)'>
+	<td class='link'>...</td>
+	<td class='edit'>
+		<img src='http://reddigital.biz/appl/gb/images/pencil.png'></td>
+</table>
+</div>
+
+<div id="Edit" style="display:none">
+<center>
+<form>
+	<table width=100%>
+	<tr><td align=right> __MSG_name__ <td width=100%> <input name="title" type="text" width=100%>
+	<tr><td align=right> __MSG_link__ <td> <input name="link" type="text" width=100%>
+	<tr><td colspan=2 align=center>
+	<input type="button" value="__MSG_save__" onClick="doSave()" >
+	<input type="button" value="__MSG_delete__" onClick="doDel()" >
+	<input type="button" value="__MSG_cancel__" onClick="doCancel()" >
+	</table>
+</form>
+</center>
+</div>
+
+<div id="foot" style="display:none">
+</div>
+</Content></Module>

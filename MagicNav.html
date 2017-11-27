@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ua ru">
+
+<head>
+  <meta charset="utf-8">
+<style>
+		@media all {
+			* { line-height: 1.3em; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -o-text-size-adjust: 100%; text-size-adjust: 100%; }
+			*, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+			html { font-size: 62.5%; }
+			body { background: #151515; background-size: auto auto; color: #333; font-weight: 400; font-family: "Open Sans", sans-serif; margin: 0; padding: 0; }
+			input[type="text"] { -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; }
+			h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 2.5rem; margin: 0 0 1em; padding: 0; }
+			p, ul, ol, dt, dd { font-size: 1.6rem; color: #333; margin: 0 0 1em; padding: 0; }
+			ul, ol { margin-left: 2em; }
+			a { color: #be630e; cursor: pointer; text-decoration: underline;
+				-webkit-transition: color .25s ease-in-out;
+				   -moz-transition: color .25s ease-in-out;
+					-ms-transition: color .25s ease-in-out;
+					 -o-transition: color .25s ease-in-out;
+						transition: color .25s ease-in-out;
+			}
+			a:hover, a:focus { color: #212121; }
+			table { margin: 0; padding: 0; border: 0; border-spacing: 0; border-collapse: collapse; }
+			th, td { font-weight: normal; text-align: left; vertical-align: middle; padding: 0; }
+			article, footer, header, nav, form { margin: 0; padding: 0; display: block; }
+			
+			img { margin: 0; padding: 0; border: 0; }
+			img[data-src-lazy] { background: url(../img/interface/lazy-load-background.png) 0 0 / auto auto repeat; min-height: 1px; }
+			img.right { float: right; margin-left: 20px; margin-bottom: 20px; }
+			img.left { float: left; margin-right: 20px; margin-bottom: 20px; }
+			img.right, img.left { max-width: 600px; }
+			
+			hr { display: none; }
+			
+			h2 { font-size: 4rem; font-weight: 300; text-transform: uppercase; color: #212121; text-align: center; position: relative; margin: 40px 0 20px; padding: 0 30px; clear: both; }
+			h2:before { content: ''; height: 1px; width: 100%; background: #bdbdbd; position:absolute; z-index: 0; left: 0; top: 50%; margin-top: -1px; }
+			h2 span { background: url(../img/interface/background.jpg) 0 0 repeat; background-size: auto auto; position: relative; display: inline; padding: 0 10px; white-space: pre-wrap; }
+		
+			h3 { font-size: 2rem; font-weight: 600; text-transform: uppercase; margin: 30px 0 0 0; }
+			h4 { font-size: 1.6rem; font-weight: 700; margin: 1.5em 0 0.5em 0; }
+			h2 + h3 { margin-top: -10px; }
+			
+			#page.snap-menu { padding-top: 100px; }
+			body.use-sticky-menu #page { padding-top: 0; }
+			
+			#viewport { overflow: hidden;
+				-webkit-transition-property: -webkit-transform, -webkit-filter; -webkit-transition-duration: .25s; -webkit-transition-timing-function: ease-in-out;
+				   -moz-transition-property:    -moz-transform,    -moz-filter;    -moz-transition-duration: .25s;    -moz-transition-timing-function: ease-in-out;
+					-ms-transition-property:     -ms-transform,     -ms-filter;     -ms-transition-duration: .25s;     -ms-transition-timing-function: ease-in-out;
+					 -o-transition-property:      -o-transform,      -o-filter;      -o-transition-duration: .25s;      -o-transition-timing-function: ease-in-out;
+						transition-property:         transform, 		filter;         transition-duration: .25s;         transition-timing-function: ease-in-out;
+			}
+			
+			.page-width { max-width: 1200px; margin: 0 auto; }
+			.clear { clear: both; }
+			
+			p a.rss { background: url("../img/interface/rss-icon.svg") no-repeat scroll left center; background-size: auto 70%; margin-left: 5px; padding: 0 0 0 20px; display: inline-block; text-decoration: none; }
+		
+			/* Devs values (flebrun) */
+			.hide { display: none; }
+			.page-how-to-play .learn-more { position: absolute; margin-top: 25px; }
+			.page-deck-building #content { padding: 35px 0px 35px; }
+			.mn_section_account a img {float: left; width:50px; height: 50px;}
+			.spacer { margin-top: 20px;}
+			.page-game-info-gameplay-rules-and-formats-formats .region-content { margin-bottom: 80px; }
+			.page-videos #content-wrapper {padding-bottom: 80px;}
+			.page-how-to-play .region-content {padding-bottom: 80px;}
+			.form-item, .form-actions { margin: 0; }
+			.mm-wrapper .form-submit {display:none;}
+			.card-set-archive-table { padding-top:30px;}
+			div.rtecenter { margin-bottom: 1.6em; }
+			
+			/* -- YouTube Video -- */
+			/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+			.youtube-container { padding: 0 0 56.25% !important; height: 0 !important; position: relative !important; overflow: hidden !important; }
+			.youtube-container iframe { width: 100% !important; height: 100% !important; margin: 0 !important; padding: 0 !important; position: absolute !important; top: 0 !important; left: 0 !important; }
+		
+		}
+		
+        body {
+                background-color: black;
+                color: #333;
+                font-weight: 400;
+                font-family: "Open Sans", sans-serif;
+                font-size: 62.5%;
+                
+            }
+					header { 
+							background: url(../img/interface/bg-header.png) 0 0 repeat-x; 
+							background-size: auto 100%; 
+							z-index: 400; 
+							border-bottom: 1px solid #333; 
+							position: relative; 
+					}
+					
+					#page.snap-menu header { height: 50px; 
+							position: fixed; 
+							top: 0; 
+							right: 0; 
+							left: 0;
+							transition: top .7s ease-in-out;
+					}
+					
+					header .wrapper { 
+							width: 1200px; 
+							height: 100px; 
+							margin: 0 auto; 
+							position: relative; 
+					
+					}
+					#page.snap-menu header .wrapper
+					 { 
+							height: 50px;
+					 }
+					
+					 header .home { width: 258px; 
+							height: 104px; 
+							display: block; 
+							outline: 0; 
+							position: absolute; 
+							top: -50px; 
+							left: 0; 
+							z-index: 5000;
+									transition-property: width, height, top; 
+									transition-duration: .25s;         
+									transition-timing-function: ease-in-out;
+					}
+					header .home:after { 
+							content: ""; 
+							background: url(../img/interface/logo-magic-halo.png) 0 0 no-repeat; background-size: 100% 100%; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 401; opacity: .5;
+							
+											transition: opacity .25s ease-in-out;
+					}
+					header .home span { text-indent: 
+							-999px; width: 100%; 
+							height: 100%; 
+							background: url(../img/interface/logo-magic.png) 0 0 no-repeat; 
+							background-size: 100% 100%; 
+							display: block; 
+							position: relative;  
+							z-index: 402; 
+							overflow: hidden; }
+					
+					#page.snap-menu header .home { width: 124px;
+							 height: 50px; 
+							 top: 0; }
+					#page.snap-menu header .home span { background-image: url(../img/interface/logo-magic-small.png); }
+					
+					/* !-- Header Utilities -- */
+					/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+					@media all {
+							#utils { float: right; 
+									position: relative; 
+									padding-top: 10px;
+									 height: 50px; }
+						#page.snap-menu header #utils { display: none; }
+						
+						#utils a { color: #7e7e7e; float: left; font-size: 1.1rem; font-weight: 600; margin: 0 0 0 15px; padding: 9px 0 9px 34px; text-decoration: none; text-transform: uppercase; position: relative; }
+						#utils a:hover, #utils a:focus { color: #be630e; }
+						
+						#utils a:after { font-weight: normal; font-size: 2.2rem; line-height: 1em; font-family: "icomoon", sans-serif; text-transform: none; text-align: center; width: 34px; position: absolute; top: .2em; left: 0; }
+						
+						#utils a.locator:after { content:"l"; }
+						#utils a.gatherer:after { content:"g"; }
+						
+						#utils a.login:after,
+						#utils a.logout:after
+							{ content: "1" }
+						
+						#utils a.register,
+						#utils a.account
+							{ margin-left: 0; padding-left: 0; }
+						#utils a.register:before,
+						#utils a.account:before
+							{ content: "|"; color: #7e7e7e; margin: 0 5px; }
+						
+						#utils #search-form { float: left; margin: 2px 10px 0 20px; padding: 0; position: relative; }
+						#utils #search-form .form-item { margin: 0 !important; }
+						#utils #search-form input { background-color: #424040; color: #fff; font-family: "Open Sans", sans-serif; font-size: 1.1rem; border: 0 none; padding: 5px 5px 5px 35px;
+							-webkit-border-radius: 3px; -webkit-transition: background-color .25s ease-in-out;
+								 -moz-border-radius: 3px;    -moz-transition: background-color .25s ease-in-out;
+									-ms-border-radius: 3px;     -ms-transition: background-color .25s ease-in-out;
+									 -o-border-radius: 3px;      -o-transition: background-color .25s ease-in-out;
+											border-radius: 3px;         transition: background-color .25s ease-in-out;
+						}
+						#utils #search-form input:focus { outline: 0; background-color: #212121; }
+						#utils #search-form .form-item:before { content:"s"; color: #727070; font-family: "icomoon", sans-serif; font-weight: normal; font-size: 16px; line-height: 1em; text-align: center; text-transform: none; margin-top: -.5em; position: absolute; top: 50%; left: 8px; }
+					}
+					
+					
+					@media (max-width: 1023px) {
+						#utils { display: none; float: none; position: relative; height: 50px; width: 270px; background-color: #212121; }
+						#utils .gatherer, #utils .locator { display: none !important; }
+						#utils #search-form { display: none; margin: 0 0 0 10px; border-radius: 1px; z-index: 5000; }
+						#utils #search-form input { padding: 7px 5px 7px 35px; width: 250px; }
+						#utils.visible, #utils.visible #search-form, #page.snap-menu header #utils.visible { display: block; }
+					}
+					
+					/* !-- Menu -- */
+					/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+					@media all {
+						#menu { z-index: 400; position: relative; width: 100%; height: 50px; float: left; }
+						#menu.snap { background: url(../img/interface/bg-header.png) 0 0 repeat-x; background-size: 100% 100%; }
+						#menu .menu-wrapper { width: 1200px; margin: 0 auto; height: 50px; position: relative; }
+						#menu a { text-decoration: none; }
+						#menu a, #menu p { color: #fff; font-size: 1.4rem; font-weight: 600; line-height: 1.0em; text-transform: uppercase; display: block; }
+						#menu ul { float: right; margin: 0; height: 50px; list-style: none; }
+						
+						body.use-sticky-menu #menu ul.menu {
+							opacity: 0;
+							-webkit-transition: opacity .25s ease-in-out;
+								 -moz-transition: opacity .25s ease-in-out;
+									-ms-transition: opacity .25s ease-in-out;
+									 -o-transition: opacity .25s ease-in-out;
+											transition: opacity .25s ease-in-out;
+						}
+						body.use-sticky-menu header:hover #menu ul.menu { opacity: 1; }
+						
+						#menu ul li { text-align: center; display: block; float: left; margin: 0 !important; padding: 0; position: relative; min-width: 140px; max-width: 180px; height: 50px;
+								-webkit-transition: background-color .15s ease-in-out;
+									 -moz-transition: background-color .15s ease-in-out;
+										-ms-transition: background-color .15s ease-in-out;
+										 -o-transition: background-color .15s ease-in-out;
+												transition: background-color .15s ease-in-out;
+						}
+						#menu ul li a { width: 100%; height: 100%; display: table;
+							-webkit-transition: background-color .2s ease-in-out;
+								 -moz-transition: background-color .2s ease-in-out;
+									-ms-transition: background-color .2s ease-in-out;
+									 -o-transition: background-color .2s ease-in-out;
+											transition: background-color .2s ease-in-out;
+						}
+						#menu ul li a span { line-height: 1em; width: 100%; padding: 0 20px; display: table-cell; vertical-align: middle; }
+						#menu ul li li span { width: auto; padding: 0; display: block; }
+						
+						#menu ul li:hover { background-color: #be630e; }
+						#menu ul li.current a span:after { content: ""; height: 2px; background: #be630e; position: absolute; right: 0; bottom: 0; left: 0; }
+						#menu ul li.current a span.live:after { display: none; }
+						#menu ul li.current:hover a span:after,
+						#menu ul li.current li a span:after
+							{ display: none; }
+						#menu ul li:before { position: absolute; content: ""; width: 1px; top:15%; bottom: 15%; left: 0; 
+							background: -moz-linear-gradient(top, rgba(120,120,120,0) 0%, rgba(120,120,120,1) 50%, rgba(120,120,120,0) 100%);
+							background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(120,120,120,0)), color-stop(50%,rgba(120,120,120,1)), color-stop(100%,rgba(120,120,120,0)));
+							background: -webkit-linear-gradient(top, rgba(120,120,120,0) 0%,rgba(120,120,120,1) 50%,rgba(120,120,120,0) 100%);
+							background: -o-linear-gradient(top, rgba(120,120,120,0) 0%,rgba(120,120,120,1) 50%,rgba(120,120,120,0) 100%);
+							background: -ms-linear-gradient(top, rgba(120,120,120,0) 0%,rgba(120,120,120,1) 50%,rgba(120,120,120,0) 100%);
+							background: linear-gradient(to bottom, rgba(120,120,120,0) 0%,rgba(120,120,120,1) 50%,rgba(120,120,120,0) 100%);
+						}
+						
+						
+						#menu ul li a span span.live { text-indent: -999px; width: 30px; height: 22px; margin: 0 0 0 8px; padding: 0; background: url(../img/interface/menu-live-icon.svg) 50% 0 no-repeat; background-size: auto 200%; display: inline-block; overflow: hidden; position: relative; top: -1px; }
+						
+						#menu ul li:hover a span span.live,
+						#menu ul li:focus a span span.live
+							{ background-position: 50% 100%; }
+						
+						
+						/*--------------- Level 2 ------------*/
+						
+						#menu ul li li:before { background: none; }
+						
+						#menu li.has-children ul { display: none; /*width: 100%;*/ height: auto; position: absolute; background-color: #403d3d; top: 50px; left: 0; padding-bottom: 20px; }
+						#menu li.has-children:hover ul { display: block; }
+						#menu li.has-children ul li { background-color: #403d3d; height: auto; margin-left: 0px; width: 100%; }
+						#menu li.has-children ul li a { padding: 15px 10px; }
+						#menu li.has-children ul li:hover { background-color: #be630e; }
+						#menu li.current li.current { background-color: #212121; }
+						
+						
+						#menu li li.has-children { position: relative; }
+						#menu li li.has-children:after { content: "r"; color: #be630e; font-family: "icomoon", sans-serif; font-weight: normal; font-size: 1.1rem; text-transform: none; position: absolute; top: 14px; right: 0; z-index: 5000; opacity: 0;
+							-webkit-transition: opacity .25s ease-in;  
+								 -moz-transition: opacity .25s ease-in;  
+									-ms-transition: opacity .25s ease-in;  
+									 -o-transition: opacity .25s ease-in;  
+											transition: opacity .25s ease-in;	
+							-webkit-transition: right .25s ease-in;  
+								 -moz-transition: right .25s ease-in;  
+									-ms-transition: right .25s ease-in;  
+									 -o-transition: right .25s ease-in;  
+											transition: right .25s ease-in;	
+						}
+						#menu li li.has-children:hover:after, #menu li li.has-children:focus a:after { opacity: 1; right: -9px; }
+						
+						/*------------- Level 3 -----------------*/
+						#menu li.has-children ul li.has-children ul { display: none; left: 100%; top: 0px; right: auto; min-width: 140px; background: rgba(64,61,61, 0.9) }
+						#menu li.has-children ul li.has-children.columns ul { width: 200%; }
+						#menu li.has-children ul li.has-children:hover ul { display: block; }
+						#menu li.has-children ul li.has-children ul li { background-color: transparent; padding: 5px 7px; }
+						#menu li.has-children ul li.has-children.columns ul li { float: left; max-width: 140px; }
+						#menu li.has-children ul li.has-children ul li a { font-style: italic; padding: 8px; }
+						#menu li.has-children ul li.has-children ul li.current a { background-color: #757373; }
+						#menu li.has-children ul li.has-children ul li a:hover { background-color: #212121; }
+						#menu li.has-children ul li.has-children ul li a:after { content: ""; }
+						
+						#menu li.hub-link { display: none !important; }
+					}
+
+
+
+
+</style>
+</head>
+<body>
+	<div id="page">
+        <header >
+				<div class="wrapper">
+				  <div id="utils">
+					<a href="http://locator.wizards.com/" class="locator">Локатор</a> <a href="http://gatherer.wizards.com" class="gatherer">База карт</a>        <a href="/ru" title="Sign In" onclick="ga('send', 'event', 'SignIn', 'Click', 'Top-Menu'); return wotcAccountWidget.showLoginModal();" id="SignInButton" class="login active">Sign In</a> | <a href="/ru" title="Sign Up" onclick="ga('send', 'event', 'Signup', 'Click', 'Top-Menu'); return wotcAccountWidget.showJoinModal();" id="RegisterButton" class="register active">Sign Up</a>        <div id="search-form">
+					  <form action="/ru" method="post" id="wiz-search-bar-form--2" accept-charset="UTF-8"><div><input name="search-site" value="acquia_search" type="hidden">
+			<div class="form-item form-type-textfield form-item-search-string">
+			 <input placeholder="Search Anything" id="edit-search-string--3" name="search-string" value="" size="25" maxlength="128" class="form-text required" type="text">
+			</div>
+			<input id="edit-search-button--3" name="op" value="Search" class="form-submit" type="submit"><input name="form_build_id" value="form-oQrtUsBBXyDK5GAwTV9R_NMJF-JcxX8FQA_PpQNjVUo" type="hidden">
+			<input name="form_id" value="wiz_search_bar_form" type="hidden">
+			</div></form>        </div>
+				  </div>
+			
+				  <!-- Menu -->
+				  <nav id="menu">
+					<a class="home" href="/ru"><span>Magic the Gathering</span></a>
+			
+					<div class="menu-wrapper">
+					  <ul class="menu">
+			<li class="mn_section_НОВИЧОК-В-magic has-children"><a href="/ru/new-to-magic"><span>НОВИЧОК В MAGIC</span></a>
+				<ul class="menu"><li class="mn_section_НОВИЧОК-В-magic:-ГЛАВНАЯ"><a href="/ru/new-to-magic"><span>НОВИЧОК В MAGIC: ГЛАВНАЯ</span></a></li>
+			<li class="mn_section_СТРАТЕГИЯ"><a href="/ru/new-to-magic/strategy"><span>СТРАТЕГИЯ</span></a></li>
+			<li class="mn_section_ИСТОРИЯ"><a href="/ru/content/magic-%E2%80%94-%D1%8D%D1%82%D0%BE-%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F"><span>ИСТОРИЯ</span></a></li>
+			<li class="mn_section_СООБЩЕСТВО"><a href="http://magic.wizards.com/ru/community"><span>СООБЩЕСТВО</span></a></li>
+			</ul></li>
+			<li class="mn_section_ПРОДУКЦИЯ has-children"><a href="http://magic.wizards.com/ru/products/ixalan"><span>ПРОДУКЦИЯ</span></a><ul class="menu"><li class="mn_section_ИЗБРАННЫЕ-ВЫПУСКИ"><a href="http://magic.wizards.com/ru/products/ixalan"><span>ИЗБРАННЫЕ ВЫПУСКИ</span></a></li>
+			<li class="mn_section_ГРЯДУЩИЕ-НОВИНКИ"><a href="/ru/products/coming-soon" title=""><span>ГРЯДУЩИЕ НОВИНКИ</span></a></li>
+			<li class="mn_section_magic-duels"><a href="/ru/products/magic-duels"><span>MAGIC DUELS</span></a></li>
+			<li class="mn_section_magic-online"><a href="/ru/node/46382"><span>MAGIC ONLINE</span></a></li>
+			<li class="mn_section_АРХИВ-ВЫПУСКОВ"><a href="http://magic.wizards.com/ru/products/card-set-archive"><span>АРХИВ ВЫПУСКОВ</span></a></li>
+			</ul></li>
+			<li class="mn_section_ОСНОВЫ-ИГРЫ has-children"><a href="http://magic.wizards.com/ru/game-information"><span>ОСНОВЫ ИГРЫ</span></a><ul class="menu"><li class="mn_section_ОБ-ИГРЕ"><a href="/ru/gameplay/about-the-game"><span>ОБ ИГРЕ</span></a></li>
+			<li class="mn_section_КАК-ИГРАТЬ"><a href="/ru/gameplay/how-to-play" title=""><span>КАК ИГРАТЬ</span></a></li>
+			<li class="mn_section_КАК-СОБРАТЬ-КОЛОДУ-"><a href="/ru/gameplay/how-to-build-a-deck" title=""><span>КАК СОБРАТЬ КОЛОДУ </span></a></li>
+			<li class="mn_section_УЛУЧШИТЕ-СВОЮ-ИГРУ"><a href="/ru/gameplay/improve-your-game"><span>УЛУЧШИТЕ СВОЮ ИГРУ</span></a></li>
+			<li class="mn_section_ПРАВИЛА-И-ФОРМАТЫ"><a href="/ru/gameplay/rules-and-formats"><span>ПРАВИЛА И ФОРМАТЫ</span></a></li>
+			<li class="mn_section_ОСНОВЫ-ИГРЫ:-ГЛАВНАЯ"><a href="/ru/gameplay"><span>ОСНОВЫ ИГРЫ: ГЛАВНАЯ</span></a></li>
+			</ul></li>
+			<li class="mn_section_СЮЖЕТ has-children"><a href="http://magic.wizards.com/ru/game-info/story/magic-story"><span>СЮЖЕТ</span></a><ul class="menu"><li class="mn_section_ВВЕДЕНИЕ-В-СЮЖЕТ-magic"><a href="/ru/story" title=""><span>ВВЕДЕНИЕ В СЮЖЕТ MAGIC</span></a></li>
+			<li class="mn_section_planeswalker-Ы"><a href="/ru/story/planeswalkers" title=""><span>PLANESWALKER-Ы</span></a></li>
+			<li class="mn_section_ИЗМЕРЕНИЯ"><a href="/ru/story/planes" title=""><span>ИЗМЕРЕНИЯ</span></a></li>
+			</ul></li>
+			<li class="mn_section_ТУРНИРЫ has-children"><a href="/ru/events"><span>ТУРНИРЫ</span></a><ul class="menu"><li class="hub-link ТУРНИРЫ"><a href="/ru/events"><span>ТУРНИРЫ</span></a></li>
+			<li class="mn_section_ТУРНИРЫ:-ГЛАВНАЯ"><a href="/ru/events"><span>ТУРНИРЫ: ГЛАВНАЯ</span></a></li>
+			<li class="mn_section_ЧТО-ТАКОЕ-ТУРНИРЫ"><a href="/ru/events/what-is-organized-play"><span>ЧТО ТАКОЕ ТУРНИРЫ?</span></a></li>
+			<li class="mn_section_ТИПЫ-<br>ТУРНИРОВ"><a href="/ru/events/event-types"><span>ТИПЫ <br>ТУРНИРОВ</span></a></li>
+			<li class="mn_section_РЕПОРТАЖИ has-children"><a class="nolink"><span>РЕПОРТАЖИ</span></a><ul class="menu"><li class="mn_section_АРХИВ-РЕПОРТАЖЕЙ"><a href="/ru/events/coverage" title=""><span>АРХИВ РЕПОРТАЖЕЙ</span></a></li>
+			<li class="mn_section_ЛУЧШИЕ-ИГРОКИ"><a href="/ru/node/46371" title=""><span>ЛУЧШИЕ ИГРОКИ</span></a></li>
+			</ul></li>
+			<li class="mn_section_РАСПИСАНИЕ"><a href="http://magic.wizards.com/ru/content/premier-events-schedule"><span>РАСПИСАНИЕ</span></a></li>
+			<li class="mn_section_РЕСУРСЫ has-children"><a class="nolink"><span>РЕСУРСЫ</span></a><ul class="menu"><li class="mn_section_ОЧКИ-planeswalker"><a href="/ru/events/resources/planeswalker-points" title=""><span>ОЧКИ PLANESWALKER</span></a></li>
+			<li class="mn_section_СУДЬИ"><a href="/ru/node/46390" title=""><span>СУДЬИ</span></a></li>
+			</ul></li>
+			</ul></li>
+			<li class="mn_section_СТАТЬИ has-children"><a href="/ru/articles"><span>СТАТЬИ</span></a><ul class="menu"><li class="hub-link СТАТЬИ"><a href="/ru/articles"><span>СТАТЬИ</span></a></li>
+			<li class="mn_section_СТАТЬИ:-ГЛАВНАЯ"><a href="/ru/articles"><span>СТАТЬИ: ГЛАВНАЯ</span></a></li>
+			<li class="mn_section_АРХИВЫ"><a href="/ru/node/46357"><span>АРХИВЫ</span></a></li>
+			<li class="mn_section_ЛУЧШИЕ-КОЛОДЫ"><a href="/ru/node/46356"><span>ЛУЧШИЕ КОЛОДЫ</span></a></li>
+			<li class="mn_section_МАТЕРИАЛЫ has-children"><a class="nolink"><span>МАТЕРИАЛЫ</span></a><ul class="menu"><li class="mn_section_ВИДЕО"><a href="/ru/node/46393"><span>ВИДЕО</span></a></li>
+			<li class="mn_section_ПОДКАСТЫ"><a href="/ru/node/46394"><span>ПОДКАСТЫ</span></a></li>
+			<li class="mn_section_ФОНЫ-РАБОЧЕГО-СТОЛА"><a href="/ru/node/46395"><span>ФОНЫ РАБОЧЕГО СТОЛА</span></a></li>
+			<li class="mn_section_НАБОРЫ-fan-kit"><a href="/ru/articles/media/fan-kits"><span>НАБОРЫ FAN KIT</span></a></li>
+			</ul></li>
+			</ul></li>
+			</ul>        </div>
+				  </nav>
+				</div>
+			  </header>
+
+			  <div id="Potf-main">
+					<table id="pd">
+			
+					  <thead>
+			
+						<tr>
+						  <th colspan="2">
+			
+							Персональна інформація</th>
+						</tr>
+					  </thead>
+			
+					  <tbody>
+			
+						<tr>
+			
+						  <td><i> Ім'я:</i></td>
+			
+						  <td><b>Гліб Глуговський</b></td>
+						</tr>
+			
+						<tr>
+			
+						  <td><i> Рід:</i></td>
+			
+						  <td><b>Чоловічий</b></td>
+						</tr>
+			
+						<tr>
+			
+						  <td><i> Дата Народження:</i></td>
+			
+						  <td> <b>16.07.1998</b></td>
+						</tr>
+			
+						<tr>
+			
+						  <td><i>Місце Народження:</i> </td>
+			
+						  <td><b>Харків, Україна</b> </td>
+						</tr>
+			
+						<tr>
+			
+						  <td><i> Громадянство:</i></td>
+			
+						  <td>
+							<b>України</b>
+						  </td>
+						</tr>
+			
+						<tr>
+			
+						  <td><i> Адреса:</i></td>
+			
+						  <td>
+							<b>Україна, Харків, пр.Перемоги, 67, 182</b>
+						  </td>
+						</tr>
+			
+						<tr>
+			
+						  <td><i> Телефон:</i></td>
+			
+						  <td>
+							<b>0964213162</b>
+						  </td>
+						</tr>
+			
+						<tr>
+			
+						  <td><i> Контакти:</i></td>
+			
+						  <td>
+							<b>Gmail: <a href="mailto:glugov1998@gmail.com" target="_blank">glugov1998@gmail.com</a> <br>
+			 Facebook: <a href="https://www.facebook.com/profile.php?id=100005077508370" target="_blank">Гліб Глуговський</a></b>
+						  </td>
+						</tr>
+			
+						<tr>
+			
+						  <td><i> Діяльність:</i></td>
+			
+						  <td>
+							<b>Студент</b>
+						  </td>
+						</tr>
+			
+						<tr>
+			
+						  <td><i> Місце навчання:</i></td>
+			
+						  <td>
+							<b>Харківський Національний Університет Радіоелектроники</b>
+						  </td>
+						</tr>
+			
+			
+						<tr>
+			
+						  <td><i>Факультет: </i></td>
+			
+						  <td>
+							<b>Комп'ютерні науки</b>
+						  </td>
+						</tr>
+			
+			
+						<tr>
+			
+						  <td><i>Роки навчання:</i></td>
+			
+						  <td>
+							<b>2015-2019</b>
+						  </td>
+						</tr>
+					  </tbody>
+					</table>
+			
+			
+			
+			
+			
+			
+					<img id="my-img" alt="MyPhoto" src="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/Screenshot-2017-10-26%20Liliana%20Gapon%20%28%20liliana_gapon%29%20%E2%80%A2%20%D0%A4%D0%BE%D1%82%D0%BE%20%D0%B8%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%20%D0%B2%20Instagram%281%29.png">
+				</div>
+			
+			
+				<div id="fav-subj">
+				  <h3>Улюблені предмети</h3>
+			
+				  <p>Найбільш усього в школі мені подобались такі предмети:</p>
+				  <ul class="left">
+					<li>Прикладна математика</li>
+					<li>Інформатика</li>
+					<li>Фізика</li>
+				  </ul>
+				  <p>А в унівеситеті такі:</p>
+				  <ul class="left">
+					<li>Алгоритмізація та програмування</li>
+					<li>Хмарні технології та Python</li>
+				  </ul>
+				  <br>
+				</div>
+			
+				<div id="comp-access">
+				  <h3>Доступ до комп'ютера</h3>
+				  <p>Я маю доступ до комп'ютера близько <b>60 годин</b> на тиждень</p>
+				  <br>
+				</div>
+				<div id="prog-languages">
+				  <h3>Мої мови програмування</h3>
+			
+			
+			
+			
+				  <table width="40%">
+			
+					<thead>
+			
+					  <tr>
+			
+						<th><br>
+						</th>
+			
+						<th>Назва</th>
+			
+						<th>Рівень</th>
+					  </tr>
+					</thead>
+			
+					<tbody>
+			
+			
+			
+					  <tr>
+			
+						<td>1</td>
+			
+						<td>Python</td>
+			
+						<td>Високий</td>
+					  </tr>
+			
+			
+					  <tr>
+			
+						<td>2</td>
+			
+						<td>C++</td>
+			
+						<td>Вище середнього</td>
+					  </tr>
+			
+					  <tr>
+			
+						<td>3</td>
+			
+						<td>Java</td>
+			
+						<td>Середній</td>
+					  </tr>
+			
+					  <tr>
+			
+						<td>4</td>
+			
+						<td>R</td>
+			
+						<td>Початковий</td>
+					  </tr>
+			
+					  <tr>
+			
+						<td>5</td>
+			
+						<td>Prolog</td>
+			
+						<td>Початковий</td>
+					  </tr>
+			
+					</tbody>
+				  </table>
+			
+				  <br>
+				</div>
+			
+				<div id="ai">
+				  <h3>Штучний інтелект</h3>
+				  <p><b>Штучний інтелект</b> - це галузь інформатики, яка спеціалізується на розробці методів вирішення та формалізації задач, які прийнято рахувати творчими або людськими.
+				  </p>
+				  <br>
+				</div>
+			
+				<div id="hobbies">
+			
+				  <h3>Хоббі і таланти</h3>
+			
+			
+				  <p>Маю такі хобі:</p>
+			
+				  <ul class="left">
+					<li>Музика:
+					  <ul>
+						<li>Гітара</li>
+						<li>Саксофон</li>
+						<li>Синтезатор</li>
+						<li>Ударні</li>
+					  </ul>
+					</li>
+					<li>Малюваня</li>
+					<li><a href="https://ru.wikipedia.org/wiki/%D0%9A%D1%8D%D0%BD%D0%B4%D0%BE" target="_blank">Кендо</a></li>
+				  </ul>
+			
+				  <br>
+				</div>
+			
+				<div id="planes">
+				  <h3>Мої плани</h3>
+				  <ol class="left">
+					<li>Закінчити університет</li>
+					<li>Купити дім у Новій-Зеландії</li>
+					<li>Мандрувати по світу</li>
+				  </ol>
+				  <br>
+				</div>
+			
+				<div id="blog">
+				  <h3>Блог</h3>
+				  <form action="/blog" method="post" id="form">
+					Тема:<br>
+					<input name="name" type="text" size="50" /><br> Повідомлення:
+					<br>
+					<textarea form="form" rows="4" cols="50"></textarea><br>
+					<input type="submit" value="Відправити" />
+				  </form>
+				  <br>
+				</div>
+			</div>
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			
+			<script>
+					$(window).scroll(function() {
+						if ($(document).scrollTop() > 50) {
+							
+							$('#page').addClass('snap-menu');
+							
+						} else {
+							$('#page').removeClass('snap-menu');
+							
+						}
+					});
+			</script>
+
+</body>
+
+</html>
