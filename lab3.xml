@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs title="Lab3MenuGadget" width="1200" height="auto"/>
+  <ModulePrefs title="Lab3MenuGadget" width="1200" height="auto"></ModulePrefs>
 
   <Content type="html" preferred_height="auto">
     <![CDATA[

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-  <ModulePrefs width="100%" height="700"/>
+  <ModulePrefs width="100%" height="700"></ModulePrefs>
   <Content type="html" preferred_height="auto">
     <![CDATA[
     <style type="text/css">
@@ -30,9 +30,6 @@
         .page-width {
           max-width: 1200px;
           margin: 0 auto;
-        }
-        .clear {
-          clear: both;
         }
 
         body {
