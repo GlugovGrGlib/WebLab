@@ -101,7 +101,6 @@
           transition-property: width, height, top;
           transition-duration: .25s;
           transition-timing-function: ease-in-out;
-          display:none;
         }
 
         header .home:after {
