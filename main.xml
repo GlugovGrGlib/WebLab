@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
   <ModulePrefs width="100%" height="700"></ModulePrefs>
-  <Content type="html" view="configuration" preferred_height="auto">
+  <Content type="html" preferred_height="auto">
     <![CDATA[
     <style type="text/css">
-      @media all {
+
         * {
           line-height: 1.3em;
           text-size-adjust: 100%;
@@ -130,7 +130,7 @@
         }
 
         /* !-- Header Utilities -- */
-        @media all {
+
           #utils {
             float: right;
             position: relative;
@@ -201,7 +201,7 @@
 
 
         /* !-- Menu -- */
-        @media all {
+
           #menu {
             z-index: 400;
             position: relative;
@@ -427,7 +427,7 @@
 }
         }
 </style>
-<script type="text/script" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
       <script type="text/script">
           $(window).scroll(function() {
@@ -538,7 +538,7 @@
     			</div>
     		</header>
 
-        <div style="position:relative; width:100%; height:2000px; background:orange; color:white; margin-top:100px; font-size:20px; font-weight:600;">
+        <div style="position:relative; background:orange; color:white; margin-top:100px; font-size:20px; font-weight:600;">
           <table height="1000px" align="center" font-size="20px">
             <tr>
               <td valign="top">
