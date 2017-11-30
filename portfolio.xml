@@ -876,6 +876,8 @@
         $("html").animate({
           opacity: 1
         }, 1000);
+        $('header .home').hide();
+
       });
 
       $(function() {
