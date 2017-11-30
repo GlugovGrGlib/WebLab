@@ -538,7 +538,7 @@
     			</div>
     		</header>
 
-        <div style="position:relative; background:orange; color:white; margin-top:100px; font-size:20px; font-weight:600;">
+        <div style="position:relative; color:white; margin-top:100px; font-size:20px; font-weight:600;">
           <table height="1000px" align="center" font-size="20px">
             <tr>
               <td valign="top">
@@ -547,6 +547,7 @@
             </tr>
           </table>
         </div>
+      </div>
 ]]>
   </Content>
 </Module>
