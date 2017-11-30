@@ -95,7 +95,7 @@
           display: block;
           outline: 0;
           position: absolute;
-          top: -50px;
+          top: 0px;
           left: 0;
           z-index: 5000;
           transition-property: width, height, top;
@@ -250,11 +250,11 @@
         }
 
         #menu ul {
-          float: right;
+          float: left;
           margin: 0;
           height: 50px;
           list-style: none;
-          padding-right: 50px;
+          padding-left: 110px;
         }
 
 
@@ -474,46 +474,46 @@
 
           <!-- Menu -->
           <nav id="menu">
-            <a class="home" href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/"><span>Gleb Glugovskiy</span></a>
+            <a class="home" href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/" target=self><span>Gleb Glugovskiy</span></a>
 
             <div class="menu-wrapper">
               <ul class="menu">
-                <li class="mn_section_portfolio has-children"><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio"><span>Моє портфоліо</span></a>
+                <li class="mn_section_portfolio has-children"><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio" target=self><span>Моє портфоліо</span></a>
                   <ul class="menu">
                     <li>
                       <a href="#Potf-main" target=self>
-                      <span>Портфоліо</span>
-                    </a>
+  										<span>Портфоліо</span>
+  									</a>
                     </li>
                     <li>
                       <a href="#fav-subj" target=self>
-                      <span>Улюблені предмети</span>
-                    </a>
+  										<span>Улюблені предмети</span>
+  									</a>
                     </li>
                     <li>
                       <a href="#comp-access" target=self>
-                      <span>Доступ до комп'ютера</span>
-                    </a>
+  										<span>Доступ до комп'ютера</span>
+  									</a>
                     </li>
                     <li>
                       <a href="#prog-languages" target=self>
-                      <span>Мої мови програмування</span>
-                    </a>
+  										<span>Мої мови програмування</span>
+  									</a>
                     </li>
                     <li>
                       <a href="#ai" target=self>
-                      <span>Штучний інтелект</span>
-                    </a>
+  										<span>Штучний інтелект</span>
+  									</a>
                     </li>
                     <li>
                       <a href="#hobbies" target=self>
-                      <span>Хоббі і таланти</span>
-                    </a>
+  										<span>Хоббі і таланти</span>
+  									</a>
                     </li>
                     <li>
                       <a href="#planes" target=self>
-                      <span>Мої плани</span>
-                    </a>
+  										<span>Мої плани</span>
+  									</a>
                     </li>
                     <li>
                   </ul>
@@ -857,7 +857,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="jquery.hotkeys.js"></script>
+    <script src="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/images/jquery.hotkeys.js"></script>
     <script type="text/javascript">
       $(window).scroll(function() {
         if ($(document).scrollTop() > 100) {

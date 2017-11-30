@@ -3,7 +3,6 @@
 
 <head>
   <style type="text/css">
-    @media all {
       * {
         line-height: 1.3em;
         text-size-adjust: 100%;
@@ -128,7 +127,6 @@
       }
 
       /* !-- Header Utilities -- */
-      @media all {
         #utils {
           float: right;
           position: relative;
@@ -199,13 +197,13 @@
 
 
       /* !-- Menu -- */
-      @media all {
         #menu {
           z-index: 400;
           position: relative;
           width: 100%;
           height: 50px;
           float: left;
+
         }
         #menu.snap {
           background-size: 100% 100%;
@@ -229,11 +227,11 @@
           display: block;
         }
         #menu ul {
-          float: right;
+          float: left;
           margin: 0;
           height: 50px;
           list-style: none;
-          padding-right: 50px;
+          padding-left: 110px;
         }
 
 
@@ -422,8 +420,6 @@
         }
 
 
-      }
-    }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -450,7 +446,7 @@
     <header>
       <div class="wrapper">
         <div id="utils">
-          <a href='https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/feedback'>Зв'язатися з розробником</a>
+          <a href='https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/feedback' target=self>Зв'язатися з розробником</a>
           <div id="search-form">
             <form action="/ru" method="post" id="wiz-search-bar-form--2" accept-charset="UTF-8">
               <div><input name="search-site" value="acquia_search" type="hidden">
@@ -465,11 +461,11 @@
 
         <!-- Menu -->
         <nav id="menu">
-          <a class="home" href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/"><span>Gleb Glugovskiy</span></a>
+          <a class="home" href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/" target=self><span>Gleb Glugovskiy</span></a>
 
           <div class="menu-wrapper">
             <ul class="menu">
-              <li class="mn_section_portfolio has-children"><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio"><span>Моє портфоліо</span></a>
+              <li class="mn_section_portfolio has-children"><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio" target=self><span>Моє портфоліо</span></a>
                 <ul class="menu">
                   <li>
                     <a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio" target=self>
