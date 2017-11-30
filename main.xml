@@ -87,7 +87,7 @@
         display: block;
         outline: 0;
         position: absolute;
-        top: -50px;
+        top: 0px;
         left: 0;
         z-index: 5000;
         transition-property: width, height, top;
