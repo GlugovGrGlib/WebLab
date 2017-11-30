@@ -101,6 +101,7 @@
           transition-property: width, height, top;
           transition-duration: .25s;
           transition-timing-function: ease-in-out;
+          display:none;
         }
 
         header .home:after {
@@ -473,6 +474,7 @@
 
           <!-- Menu -->
           <nav id="menu">
+            <a class="home" href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/"><span>Gleb Glugovskiy</span></a>
 
             <div class="menu-wrapper">
               <ul class="menu">
@@ -861,11 +863,12 @@
         if ($(document).scrollTop() > 100) {
 
           $('#page').addClass('snap-menu');
+          $('header .home').show();
 
         }
         if ($(document).scrollTop() < 50) {
           $('#page').removeClass('snap-menu');
-
+          $('header .home').hide();
         }
       });
 
