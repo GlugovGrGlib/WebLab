@@ -4,7 +4,6 @@
 <head>
   <meta charset="utf-8">
   <style>
-    @media all {
       * {
         line-height: 1.3em;
         text-size-adjust: 100%;
@@ -136,7 +135,6 @@
       }
 
       /* !-- Header Utilities -- */
-      @media all {
         #utils {
           float: right;
           position: relative;
@@ -210,7 +208,6 @@
 
 
       /* !-- Menu -- */
-      @media all {
         #menu {
           z-index: 400;
           position: relative;
@@ -362,11 +359,11 @@
           background-color: #212121;
         }
 
-
-
-
-
+      form .error {
+        color: #ff0000;
       }
+
+
   </style>
 </head>
 
@@ -461,74 +458,61 @@
       </div>
     </header>
 
+
+    <script>
+    function validateEmail(email) {
+       var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+       return re.test(email);
+     }
+     function validateNumber(number) {
+       var re = /^\d{9}$/
+       return re.test(number);
+     }
+    function validateForm() {
+        var x = document.forms["myForm"]["email"].value;
+        var y = document.forms["myForm"]["number"].value;
+        if (!validateEmail(x)) {
+            alert("Введите правильный Email");
+            return false;
+        }
+        else if (!validateNumber) {
+          alert("Введите правильный номер телефона(9 цифр, без +)");
+          return false;
+        }
+    }
+    </script>
     <div id="container">
       <h3>Залиште відгук</h3>
 
-      <form action="/feedback" method="post" id="form">
-        Email:
-        <br>
-        <input name="email" type="text" size="50" required="required" id="emailp" />
-        <br>
-        <p id="wrongEmail"></p>
-        <br> Номер телефона:
-        <br>
-        <input name="number" type="text" size="50" id="phoneNumbp" />
-        <br>
-        <p id="wrongNumber"></p>
 
-        <br> Тема:
-        <br>
-        <input name="name" type="text" size="50" />
-        <br> Повідомлення:
-        <br>
-        <textarea form="form" rows="4" cols="50"></textarea>
-        <br>
-        <button id='validate' onclick="validateFunction()">Відправити</button>
-        <input type="submit" value="Відправити" id="validation" style="display:none" />
-      </form>
-    </div>
-
+    <form name="myForm" action=""
+    onsubmit="return validateForm()" method="post">
+    Email:
+    <br>
+    <input type="email" name="email" id="email" placeholder="john@doe.com"/>
+    <br>
+    <br> Номер телефона:
+    <br>
+    <input name="number" type="text" size="25" id="phoneNumber" />
+    <br>
+     Тема:
+    <br>
+    <input name="name" type="text" size="50" />
+     Повідомлення:
+    <br>
+    <textarea form="form" rows="4" cols="50"></textarea>
+    <br>
+    <input type="submit" value="Відправити">
+    </form>
+      </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js "></script>
-
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
     <script>
-      function validateEmail(email) {
-        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-      }
 
-      function validateNumber(number) {
-        var re = /^\d{9}$/
-        return re.test(number);
-      }
+
+
     </script>
     <script>
-      function validateForm() {
-        $("#wrongEmail").text("");
-        $("#wrongNumber").text("");
-        var email = $("#emailp").val();
-        var number = $("#phoneNumbp").val();
-        if (validateEmail(email)) {
-          $("#wrongEmail").text(email + " is valid ");
-          $("#wrongEmail").css("color", "green");
-        } else {
-          $("#wrongEmail").text(email + " is not valid ");
-          $("#wrongEmail").css("color", "red");
-          return false;
-        }
-        if (validateNumber(number)) {
-          $("#wrongNumber").text(email + " is valid ");
-          $("#wrongNumber).css("
-            color ", "
-            green ");
-          }
-          else {
-            $("#wrongNumber").text(email + " is not valid ");
-            $("#wrongNumber").css("color", "red");
-            return false;
-
-          }
-          $("#validation").click()
-        });
 
 
       $(window).scroll(function() {
@@ -549,12 +533,7 @@
         }, 1000);
         $("#form p ").hide();
       });
-      $(function() {
 
-        $("#btn ").click() {
-          $("p ").show();
-        }
-      });
     </script>
   </div>
 </body>
