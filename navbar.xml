@@ -34,7 +34,7 @@
       }
 
       body {
-        background: #AA7;
+        background: #fff;
         color: #111;
         font-weight: 400;
         font-family: "Open Sans", sans-serif;

@@ -422,7 +422,7 @@
         #container {
           font-size: 20px;
           font-weight: 400;
-          padding-top: 100px;
+          padding-top: 50px;
         }
 
 
@@ -571,12 +571,10 @@
               Email:
               <br>
               <input type="email" name="email" id="email" placeholder="john@doe.com"/>
-              <br>
               <br> Номер телефона:
               <br>
-              <input name="number" type="text" size="25" id="phoneNumber" />
-              <br>
-              <br> Тема:
+              <input name="number" type="text" size="25" id="phoneNumber" placeholder="3801234567" />
+              <br>Тема:
               <br>
               <input name="name" type="text" size="50" />
               <br> Повідомлення:
