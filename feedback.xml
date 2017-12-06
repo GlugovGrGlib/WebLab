@@ -556,7 +556,7 @@
                       alert("Введите правильный Email");
                       return false;
                   }
-                  else if (!validateNumber) {
+                  else if (!validateNumber(y)) {
                     alert("Введите правильный номер телефона(9 цифр, без +)");
                     return false;
                   }
