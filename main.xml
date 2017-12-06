@@ -446,14 +446,14 @@
             <div class="wrapper">
               <div id="utils">
                 <a href='https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/feedback' target=self>Зв'язатися з розробником</a>
-                <article id="search-form">
+                <div id="search-form">
                   <form action="/ru" method="post" id="wiz-search-bar-form--2" accept-charset="UTF-8">
-                    <article><input name="search-site" value="acquia_search" type="hidden">
-                      <article class="form-item form-type-textfield form-item-search-string">
+                    <div><input name="search-site" value="acquia_search" type="hidden">
+                      <div class="form-item form-type-textfield form-item-search-string">
                         <input placeholder="Search Anything" id="edit-search-string--3" name="search-string" value="" size="25" maxlength="128" class="form-text required" type="text">
-                      </article>
+                      </div>
 
-                    </article>
+                    </div>
                   </form>
                 </div>
               </div>
