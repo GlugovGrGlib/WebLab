@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs width="100%" height="700"></ModulePrefs>
+  <Content type="html" preferred_height="auto">
+    <![CDATA[
+    <style type="text/css">
+      * {
+        line-height: 1.3em;
+        text-size-adjust: 100%;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 10px;
+      }
+
+      .misc {
+        font-size: 12px;
+      }
+
+      #page.snap-menu {
+        padding-top: 100px;
+      }
+
+      .page-width {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .clear {
+        clear: both;
+      }
+
+      body {
+        background-color: orange;
+        color: #111;
+        font-weight: 400;
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+
+      }
+      header {
+        background: linear-gradient(150deg, black 10%, #333);
+        ));
+        background-size: auto 100%;
+        z-index: 400;
+        border-bottom: 1px solid #333;
+        position: relative;
+      }
+      @keyframes anim {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0.9;
+        }
+      }
+
+      #page.snap-menu header {
+        height: 50px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        opacity: 0.9;
+        transition: top .7s ease-in-out;
+        animation: anim 1s;
+      }
+
+      header .wrapper {
+        width: 1200px;
+        height: 100px;
+        margin: 0 auto;
+        position: relative;
+
+      }
+      #page.snap-menu header .wrapper {
+        height: 50px;
+      }
+
+      header .home {
+        width: 104px;
+        height: 95px;
+        display: block;
+        outline: 0;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        z-index: 5000;
+        transition-property: width, height, top;
+        transition-duration: .25s;
+        transition-timing-function: ease-in-out;
+      }
+      header .home:after {
+        content: "";
+        background-size: 100% 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 401;
+        opacity: .5;
+        transition: opacity .25s ease-in-out;
+      }
+      header .home span {
+        text-indent: -999px;
+        width: 100%;
+        height: 100%;
+        background: url(https://raw.githubusercontent.com/reactjs/redux/master/logo/logo.png) 0 0 no-repeat;
+        background-size: 100% 100%;
+        display: block;
+        position: relative;
+        z-index: 402;
+        overflow: hidden;
+      }
+
+      #page.snap-menu header .home {
+        width: 50px;
+        height: 45px;
+        top: 0;
+      }
+      #page.snap-menu header .home span {
+        background-image: url(https://raw.githubusercontent.com/reactjs/redux/master/logo/logo.png);
+      }
+
+      /* !-- Header Utilities -- */
+        #utils {
+          float: right;
+          position: relative;
+          padding-top: 10px;
+          height: 50px;
+        }
+        #page.snap-menu header #utils {
+          display: none;
+        }
+
+        #utils a {
+          color: #7e7e7e;
+          float: left;
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin: 0 0 0 15px;
+          padding: 9px 0 9px 34px;
+          text-decoration: none;
+          text-transform: uppercase;
+          position: relative;
+        }
+
+        #utils a:hover,
+        #utils a:focus {
+          color: #be630e;
+        }
+
+        #utils a:after {
+          font-weight: normal;
+          font-size: 2.2rem;
+          line-height: 1em;
+          font-family: "icomoon", sans-serif;
+          text-transform: none;
+          text-align: center;
+          width: 34px;
+          position: absolute;
+          top: .2em;
+          left: 0;
+        }
+
+        #utils #search-form {
+          float: left;
+          margin: 2px 10px 0 20px;
+          padding: 0;
+          position: relative;
+        }
+        #utils #search-form .form-item {
+          margin: 0 !important;
+        }
+        #utils #search-form input {
+          background-color: #424040;
+          color: #fff;
+          font-family: "Open Sans", sans-serif;
+          font-size: 1.1rem;
+          border: 0 none;
+          padding: 5px 5px 5px 35px;
+          border-radius: 3px;
+          transition: background-color .25s ease-in-out;
+        }
+        #utils #search-form input:focus {
+          outline: 0;
+          background-color: #212121;
+        }
+
+      }
+
+
+
+
+      /* !-- Menu -- */
+        #menu {
+          z-index: 400;
+          position: relative;
+          width: 100%;
+          height: 50px;
+          float: left;
+
+        }
+        #menu.snap {
+          background-size: 100% 100%;
+        }
+        #menu .menu-wrapper {
+          width: 1200px;
+          margin: 0 auto;
+          height: 50px;
+          position: relative;
+        }
+        #menu a {
+          text-decoration: none;
+        }
+        #menu a,
+        #menu p {
+          color: #fff;
+          font-size: 1.4rem;
+          font-weight: 600;
+          line-height: 1.0em;
+          text-transform: uppercase;
+          display: block;
+        }
+        #menu ul {
+          float: left;
+          margin: 0;
+          height: 50px;
+          list-style: none;
+          padding-left: 110px;
+        }
+
+
+
+        #menu ul li {
+          text-align: center;
+          display: block;
+          float: left;
+          margin: 0 !important;
+          padding: 0;
+          position: relative;
+          min-width: 140px;
+          max-width: 180px;
+          height: 50px;
+
+          transition: background-color .15s ease-in-out;
+        }
+        #menu ul li a {
+          width: 100%;
+          height: 100%;
+          display: table;
+
+          transition: background-color .2s ease-in-out;
+        }
+        #menu ul li a span {
+          line-height: 1em;
+          width: 100%;
+          padding: 0 20px;
+          display: table-cell;
+          vertical-align: middle;
+        }
+        #menu ul li li span {
+          width: auto;
+          padding: 0;
+          display: block;
+        }
+
+        #menu ul li:hover {
+          background-color: #be630e;
+        }
+        #menu ul li.current a span:after {
+          content: "";
+          height: 2px;
+          background: #be630e;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+        #menu ul li.current a span.live:after {
+          display: none;
+        }
+        #menu ul li.current:hover a span:after,
+        #menu ul li.current li a span:after {
+          display: none;
+        }
+        #menu ul li:before {
+          position: absolute;
+          content: "";
+          width: 1px;
+          top: 15%;
+          bottom: 15%;
+          left: 0;
+          background: linear-gradient(to bottom, rgba(120, 120, 120, 0) 0%, rgba(120, 120, 120, 1) 50%, rgba(120, 120, 120, 0) 100%);
+        }
+
+
+        #menu ul li a span span.live {
+          text-indent: -999px;
+          width: 30px;
+          height: 22px;
+          margin: 0 0 0 8px;
+          padding: 0;
+          background-size: auto 200%;
+          display: inline-block;
+          overflow: hidden;
+          position: relative;
+          top: -1px;
+        }
+
+        #menu ul li li:before {
+          background: none;
+        }
+
+        #menu li.has-children ul {
+          display: none;
+          width: auto;
+          height: auto;
+          position: absolute;
+          background-color: #403d3d;
+          top: 50px;
+          left: 0;
+          padding-bottom: 20px;
+          padding: 0;
+        }
+        #menu li.has-children:hover ul {
+          display: block;
+        }
+        #menu li.has-children ul li {
+          background-color: #403d3d;
+          height: auto;
+          margin-left: 0px;
+          width: 100%;
+        }
+        #menu li.has-children ul li a {
+          padding: 15px 10px;
+        }
+        #menu li.has-children ul li:hover {
+          background-color: #be630e;
+        }
+        #menu li.current li.current {
+          background-color: #212121;
+        }
+
+        .misc div {
+          border-bottom: 1px solid black
+        }
+
+        .misc div {
+          padding: 15px 10px 15px 10px;
+        }
+
+        table {
+          font-size: inherit;
+        }
+
+
+        #ai p {
+          text-shadow: 0 0 3px white, 0 0 5px #0000FF;
+        }
+
+        h3 {
+          text-align: center;
+
+        }
+
+        div #Potf-main {
+          display: block;
+          position: relative;
+          margin: auto;
+        }
+
+
+
+        #my-img {
+          padding: 25px;
+          padding-top: 5px;
+          margin: auto;
+        }
+
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
+
+        }
+
+        th,
+        td {
+          padding: 5px;
+          text-align: left;
+        }
+
+        #pd {
+          text-align: left;
+          align-self: left;
+          max-width: 700px;
+          float: left;
+
+
+        }
+
+        p {
+          text-align: left;
+        }
+
+        #blog {
+          padding-left: 0px;
+          margin: auto;
+        }
+
+        a:link {
+          color: black;
+        }
+
+        a:visited {
+          color: purple;
+        }
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+      <script type="text/javascript">
+          $(window).scroll(function() {
+            if ($(document).scrollTop() > 100) {
+
+              $('#page').addClass('snap-menu');
+
+            }
+            if ($(document).scrollTop() < 50) {
+              $('#page').removeClass('snap-menu');
+
+            }
+          });
+
+          $(document).ready(function(){
+            $("html").animate({opacity: 1}, 1000);
+          });
+
+
+      </script>
+
+        <div id="page">
+          <header>
+            <div class="wrapper">
+              <div id="utils">
+                <a href='https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/feedback' target=self>Зв'язатися з розробником</a>
+                <div id="search-form">
+                  <form action="/ru" method="post" id="wiz-search-bar-form--2" accept-charset="UTF-8">
+                    <div><input name="search-site" value="acquia_search" type="hidden">
+                      <div class="form-item form-type-textfield form-item-search-string">
+                        <input placeholder="Search Anything" id="edit-search-string--3" name="search-string" value="" size="25" maxlength="128" class="form-text required" type="text">
+                      </div>
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Menu -->
+              <nav id="menu">
+                <a class="home" href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/" target=self><span>Gleb Glugovskiy</span></a>
+
+                <div class="menu-wrapper">
+                  <ul class="menu">
+                    <li class="mn_section_portfolio has-children"><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio" target=self><span>Моє портфоліо</span></a>
+                      <ul class="menu">
+                        <li>
+                          <a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio" target=self>
+                          <span>Портфоліо</span>
+                        </a>
+                        </li>
+                        <li>
+                          <a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio" target=self>
+                          <span>Улюблені предмети</span>
+                        </a>
+                        </li>
+                        <li>
+                          <a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio" target=self>
+                          <span>Доступ до комп'ютера</span>
+                        </a>
+                        </li>
+                        <li>
+                          <a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio" target=self>
+                          <span>Мої мови програмування</span>
+                        </a>
+                        </li>
+                        <li>
+                          <a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio" target=self>
+                          <span>Штучний інтелект</span>
+                        </a>
+                        </li>
+                        <li>
+                          <a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio" target=self>
+                          <span>Хоббі і таланти</span>
+                        </a>
+                        </li>
+                        <li>
+                          <a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/portfolio" target=self>
+                          <span>Мої плани</span>
+                        </a>
+                        </li>
+                        <li>
+                      </ul>
+                      </li>
+                      <li class="mn_section_blog has-children"><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/blog" target=self><span>Мій блог</span></a>
+                        <ul class="menu">
+                          <li>
+                            <a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/blog" target=self><span>Блог</span></a>
+                          </li>
+                          <li><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/feedback" target=self><span>Залишити відгук</span></a></li>
+                        </ul>
+                      </li>
+                      <li class="mn_section_img has-children"><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/gallery" target=self><span>Галерея зображень</span></a>
+                        <ul class="menu">
+                          <li><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/gallery" target=self><span>Галерея</span></a></li>
+                          <li><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/home/gallery" target=self><span>Карусель зображень</span></a></li>
+                        </ul>
+                      </li>
+                      <li class="mn_section_files has-children"><a href=#><span>Файли</span></a>
+                        <ul class="menu">
+                          <li><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/styles" target=self><span>Стилі</span></a></li>
+                          <li><a href="https://sites.google.com/a/nure.ua/gleb-glugovskiy-kn-15-6/scripts" target=self><span>Скрипти</span></a></li>
+                        </ul>
+                      </li>
+
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </header>
+
+          <div style="position:relative; width:100%; height:2000px; background:orange; color:white; margin-top:100px; font-size:20px; font-weight:600;">
+            <table height="1000px" align="center" font-size="20px">
+              <tr>
+                <td valign="top">
+                  Прокрутіть вниз для того щоб побачити зміну меню
+                </td>
+              </tr>
+            </table>
+          </div>
+
+
+]]>
+  </Content>
+</Module>
